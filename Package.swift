@@ -7,11 +7,17 @@ let package = Package(
   products: [
     .library(
       name: "RayTracingWeekend",
-      targets: ["RayTracingWeekend"])
+      targets: ["RayTracingWeekend"]),
+    .executable(
+      name: "WeekendTracer",
+      targets: ["WeekendTracer"]),
   ],
   targets: [
     .target(
       name: "RayTracingWeekend"),
+    .executableTarget(
+      name: "WeekendTracer",
+      dependencies: ["RayTracingWeekend"]),
     .testTarget(
       name: "RayTracingWeekendTests",
       dependencies: ["RayTracingWeekend"]
