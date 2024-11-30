@@ -12,12 +12,18 @@ let package = Package(
       name: "WeekendTracer",
       targets: ["WeekendTracer"]),
   ],
+  dependencies: [
+    .package(url: "https://github.com/apple/swift-log.git", from: "1.6.2")
+  ],
   targets: [
     .target(
       name: "RayTracingWeekend"),
     .executableTarget(
       name: "WeekendTracer",
-      dependencies: ["RayTracingWeekend"]),
+      dependencies: [
+        "RayTracingWeekend",
+        .product(name: "Logging", package: "swift-log"),
+      ]),
     .testTarget(
       name: "RayTracingWeekendTests",
       dependencies: ["RayTracingWeekend"]
